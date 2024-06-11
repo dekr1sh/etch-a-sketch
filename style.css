@@ -6,19 +6,33 @@ body {
   min-height: 100vh;
   margin: 0px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-
+  flex-direction: column;
 }
 
-.grid-container {
-  height: 500px;
+.main {
+  flex: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.grid {
   width: 500px;
+  height: 500px;
   display: flex;
   flex-wrap: wrap;
   align-content: start;
 }
 
-.grid-item {
+.gridItem {
   box-sizing: border-box;
+  border: 1px solid rgb(156, 156, 156);
 }
+
+.functions {
+  display: flex;
+  flex-direction: column;
+}
+

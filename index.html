@@ -3,11 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Etch a Sketch</title>
+  <title>Etch-a-Sketch</title>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
+  <script src="https://kit.fontawesome.com/c593719e20.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="grid-container"></div>
+  <div class="header">Etch-a-Sketch</div>
+
+  <div class="main">
+    <div class="grid"></div>
+    <div class="functions">
+      <div>
+        <label for="gridSizeSlider">Grid Size: </label>
+        <span id="gridSizeValue">16 x 16</span>
+        <input type="range" id="gridSizeSlider" min="2" max="50" value="16">
+      </div>
+      <div>
+        <label for="colorPicker">Choose Color: </label>
+        <input type="color" id="colorPicker" value="#000000">
+      </div>
+      <div>
+        <button id="colorModeBtn">Color Mode</button>
+        <button id="rainbowModeBtn">Rainbow Mode</button>
+        <button id="shadowModeBtn">Shadow Mode</button>
+        <button id="eraseModeBtn">Eraser</button>
+        <button id="clearBtn">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <div class = "footer">
+    <div class="footer-text">Copyright © 2024 dekr1sh</div>
+    <a href="https://github.com/dekr1sh" target="_blank">
+      <i class="fa-brands fa-github" aria-hidden="true"></i>
+    </a>
+  </div>
 </body>
 </html>
