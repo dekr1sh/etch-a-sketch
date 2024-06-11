@@ -6,18 +6,23 @@ const colorPicker = document.querySelector("#colorPicker");
 const colorModeBtn = document.querySelector("#colorModeBtn");
 const rainbowModeBtn = document.querySelector("#rainbowModeBtn");
 const shadowModeBtn = document.querySelector("#shadowModeBtn");
-const eraseBtn = document.querySelector("#eraseModeBtn");
+const eraseModeBtn = document.querySelector("#eraseModeBtn");
 const clearBtn = document.querySelector("#clearBtn"); 
 
+const modeButtons = [colorModeBtn, rainbowModeBtn, shadowModeBtn, eraseModeBtn];
+
 let currentMode = 'color';
+colorModeBtn.classList.add('active');
 let currentColor = colorPicker.value;
 
 function setCurrentColor(newColor) {
   currentColor = newColor;
 }
 
-function setCurrentMode(newMode) {
+function setCurrentMode(newMode, activeButton) {
   currentMode = newMode;
+  modeButtons.forEach(btn => btn.classList.remove('active'));
+  activeButton.classList.add('active');
 }
 
 function getRainbowColor() {
@@ -48,7 +53,7 @@ function applyColor(item) {
     case 'erase':
       item.style.backgroundColor = "";
       item.style.opacity = 1;
-      item.style.border = "1px solid rgb(156, 156, 156)"
+      item.style.border = "1px solid #ddd"
       break;
   }
 }
@@ -94,7 +99,7 @@ function clearGrid() {
   items.forEach(item => {
     item.style.backgroundColor = "";
     item.style.opacity = 1;
-    item.style.border = "1px solid rgb(156, 156, 156)";
+    item.style.border = "1px solid #ddd";
   });
 }
 
@@ -108,10 +113,10 @@ colorPicker.addEventListener("input", () => {
   setCurrentColor(colorPicker.value);
 });
 
-colorModeBtn.addEventListener("click", () => setCurrentMode('color'));
-rainbowModeBtn.addEventListener("click", () => setCurrentMode('rainbow'));
-shadowModeBtn.addEventListener("click", () => setCurrentMode('shadow'));
-eraseBtn.addEventListener("click", () => setCurrentMode('erase'));
+colorModeBtn.addEventListener("click", () => setCurrentMode('color', colorModeBtn));
+rainbowModeBtn.addEventListener("click", () => setCurrentMode('rainbow', rainbowModeBtn));
+shadowModeBtn.addEventListener("click", () => setCurrentMode('shadow', shadowModeBtn));
+eraseModeBtn.addEventListener("click", () => setCurrentMode('erase', eraseModeBtn));
 clearBtn.addEventListener("click", clearGrid); 
 
 createGrid(gridSizeSlider.value);
