@@ -45,9 +45,9 @@ function applyColor(item) {
       item.style.border = "";
       break;
     case 'shadow':
-      let currentOpacity = +item.style.opacity || 0;
+      let currentOpacity = (+item.style.opacity === 1) ? 0 : +item.style.opacity || 0
       item.style.backgroundColor = "black";
-      item.style.opacity = Math.min(currentOpacity + 0.1, 1);
+      item.style.opacity = Math.min(currentOpacity + 0.1, 0.9);
       item.style.border = "";
       break;
     case 'erase':
